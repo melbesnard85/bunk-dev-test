@@ -1,0 +1,23 @@
+{
+  "name": "bunk-dev-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install-all": "npm install --prefix frontend & npm install --prefix backend",
+    "start": "npm run start-server && npm run start-client",
+    "start-server" : "npm run start --prefix backend",
+    "start-client" : "npm run start --prefix frontend",
+    "test": "npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://melbesnard85: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@github.com/melbesnard85/bunk-dev-test.git"
+  },
+  "author": "melwin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/melbesnard85/bunk-dev-test/issues"
+  },
+  "homepage": "https://github.com/melbesnard85/bunk-dev-test#readme"
+}
