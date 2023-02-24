@@ -13,10 +13,12 @@ import { MatSortModule } from '@angular/material/sort';
 import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { ExpenseTableComponent } from './expense-table/expense-table.component';
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ExpenseTableComponent
   ],
   imports: [
     CommonModule,
