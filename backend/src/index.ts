@@ -1,33 +1,53 @@
 import express from 'express'
 import cors from 'cors'
+import { Expenses, PayoutsResuls } from './common/common'
+import { mockExpensesData, mockPayoutsRes } from './common/mockData';
 
 const app = express();
-const port = 3000; // default port to listen
+const port = 3000;
 
-// setting up the express
 app.use(express.urlencoded({
-  extended: true
+    extended: true
 }))
 app.use(cors())
 
-const mockData = [
-    { name: 'Semon', amount: 100 },
-    { name: 'Nagn', amount: 200 },
-    { name: 'Sueir', amount: 150 },
-    { name: 'Roman', amount: 50 },
-    { name: 'Visk', amount: 300 },
-]
-
-// define a route handler for the default home page
 app.get("/", (req, res) => {
     res.send("Hello world!");
 });
 
 app.get("/expenses", (req, res) => {
-    res.send(mockData);
+    const page = req?.query.page;
+    if (page) {
+        // TODO filter data for pagination
+
+        res.send(mockExpensesData);
+    }
 });
 
-// start the Express server
+
+app.post("/payouts", (req, res) => {
+    const params = req?.body;
+    if (params) {
+        const expensesArr = JSON.parse(params.expenses);
+        // TODO
+        // const result = expenseCalc(expensesArr);
+        // res.send(result)
+        res.send(mockPayoutsRes)
+    } else {
+        res.send('Invalid request, please check the body of your request and retry!')
+    }
+});
+
+const expenseCalc = (data: any) => {
+    let result: PayoutsResuls;
+    for (let i = 0; i < data.length; i++) {
+        result.total += data.amount;
+    }
+    // TODO: calc payment
+
+    return result;
+}
+
 app.listen(port, () => {
     console.log(`server started at http://localhost:${port}`);
 });
