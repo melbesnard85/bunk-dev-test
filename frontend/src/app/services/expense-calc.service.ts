@@ -16,4 +16,14 @@ export class ExpenseCalcService {
     let params = new HttpParams().append('results', perPage).append('page', page);
     return this.http.get<SearchResult<Expenses>>(api_url, { params });
   }
+
+  payouts(data: Expenses): Observable<any> {
+    const headers = { 'content-type': 'application/x-www-form-urlencoded' }
+    const _data = JSON.stringify(data)
+    const body = new HttpParams()
+      .set('expenses', _data);
+    const api_url = "http://localhost:3000/payouts";
+    return this.http.post<any>(api_url, body.toString(), { 'headers': headers });
+  }
+
 }

@@ -3,7 +3,7 @@
         <mat-card-content class="pt-20 px-15">
             <app-expense-table [result$]="result$" [reset$]="reset$" (change)="changeTable($event)"></app-expense-table>
             <div class="text-center">
-                <button class="w-80 h-30 rounded-full bg-blue-800 text-white">Settle Up</button>
+                <button class="w-80 h-30 rounded-full bg-blue-800 text-white" (click)="settleUp()">Settle Up</button>
             </div>
         </mat-card-content>
     </mat-card>
