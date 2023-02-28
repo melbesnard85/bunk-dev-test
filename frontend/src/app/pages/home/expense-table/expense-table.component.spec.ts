@@ -1,4 +1,8 @@
+import { HttpClientModule } from '@angular/common/http';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/compiler';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 import { ExpenseTableComponent } from './expense-table.component';
 
@@ -8,7 +12,11 @@ describe('ExpenseTableComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ExpenseTableComponent ]
+      imports: [
+        HttpClientModule, MatTableModule, MatPaginatorModule
+      ],
+      declarations: [ ExpenseTableComponent ],
+      schemas: [CUSTOM_ELEMENTS_SCHEMA],
     })
     .compileComponents();
 
