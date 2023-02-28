@@ -23,4 +23,18 @@ describe('NavbarComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should render logo', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('mat-toolbar mat-icon')?.textContent).toContain('calculate');
+  });
+
+  it('should render app name', () => {
+    const fixture = TestBed.createComponent(NavbarComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('mat-toolbar span')?.textContent).toContain('Holiday Expenses Calculator');
+  });
 });

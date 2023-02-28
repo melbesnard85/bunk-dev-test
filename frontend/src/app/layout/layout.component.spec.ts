@@ -25,4 +25,11 @@ describe('LayoutComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should render page inside the container', () => {
+    const fixture = TestBed.createComponent(LayoutComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('.container')?.firstChild?.nodeName).toContain('ROUTER-OUTLET');
+  });
 });
