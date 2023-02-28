@@ -40,7 +40,6 @@ describe('HomeComponent', () => {
     fixture.detectChanges();
 
     firstValueFrom(searchBarComponent.result$.asObservable()).then((res) => {
-      console.log("res : ", res)
       expect(res.results).toEqual(mockSearchResponse.results);
       done();
     });
