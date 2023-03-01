@@ -5,10 +5,11 @@
   "main": "index.js",
   "scripts": {
     "install-all": "npm install --prefix frontend & npm install --prefix backend",
-    "start": "npm run start-server && npm run start-client",
-    "start-server" : "npm run start --prefix backend",
-    "start-client" : "npm run start --prefix frontend",
-    "test": "npm run test"
+    "install": "npm install --prefix frontend & npm install --prefix backend",
+    "server": "npm run start --prefix backend",
+    "client": "npm run start --prefix frontend",
+    "test": "npm run test",
+    "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
     "type": "git",
