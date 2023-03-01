@@ -8,7 +8,8 @@
     "install": "npm install --prefix frontend & npm install --prefix backend",
     "server": "npm run start --prefix backend",
     "client": "npm run start --prefix frontend",
-    "test": "npm run test",
+    "test": "npm run test --prefix backend",
+    "e2e": "concurrently \"npm run server\" \"npm run test --prefix frontend\"",
     "start": "concurrently \"npm run server\" \"npm run client\""
   },
   "repository": {
