@@ -20,5 +20,8 @@
   "bugs": {
     "url": "https://github.com/melbesnard85/bunk-dev-test/issues"
   },
-  "homepage": "https://github.com/melbesnard85/bunk-dev-test#readme"
+  "homepage": "https://github.com/melbesnard85/bunk-dev-test#readme",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
 }
