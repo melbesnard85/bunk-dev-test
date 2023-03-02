@@ -14,6 +14,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ExpenseTableComponent } from './expense-table/expense-table.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { ExpenseTableComponent } from './expense-table/expense-table.component';
     MatSnackBarModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
+    SharedModule
   ],
   exports: [HomeComponent]
 })

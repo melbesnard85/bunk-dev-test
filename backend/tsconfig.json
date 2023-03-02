@@ -1,20 +1,28 @@
 {
-  "compilerOptions": {
-      "module": "commonjs",
-      "esModuleInterop": true,
-      "target": "es6",
-      "noImplicitAny": true,
-      "moduleResolution": "node",
-      "sourceMap": true,
-      "outDir": "dist",
-      "baseUrl": ".",
-      "paths": {
-          "*": [
-              "node_modules/*"
-          ]
-      }
-  },
-  "include": [
-      "src/**/*"
-  ]
+    "compilerOptions": {
+        "module": "commonjs",
+        "esModuleInterop": true,
+        "target": "es6",
+        "noImplicitAny": true,
+        "moduleResolution": "node",
+        "sourceMap": true,
+        "outDir": "dist",
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        },
+        "resolveJsonModule": true,
+        "types": ["jest", "node", "webgl2"]
+    },
+    "include": [
+        "src/**/*",
+        "__test__/*.ts"
+    ],
+    "exclude": [
+        "node_modules",
+        "public_html",
+        "test",
+    ]
 }
