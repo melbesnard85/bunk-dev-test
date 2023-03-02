@@ -5,7 +5,8 @@ import { ExpenseCalcService } from 'src/app/services/expense-calc.service';
 import { TableChange } from 'src/app/core/models/table.model';
 import { SearchResult } from 'src/app/core/models/http.model';
 import { Expenses } from 'src/app/core/models/expenses.model';
-
+import { MatDialog } from '@angular/material/dialog';
+import { PayoutDialogComponent } from './payout-dialog/payout-dialog.component';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,7 @@ export class HomeComponent implements OnInit {
   constructor(
     private expenseCalService: ExpenseCalcService,
     private snack: MatSnackBar,
+    public dialog: MatDialog
   ) { }
 
   isLoading = false;
@@ -48,19 +50,27 @@ export class HomeComponent implements OnInit {
 
   settleUp() {
     this.isLoading = true;
-    console.log('val : ', this.tbData)
     this.expenseCalService.payouts(this.tbData)
       .pipe(finalize(() => {
         this.isLoading = false;
       }))
       .subscribe({
         next: (res) => {
-          console.log('res : ', res);
+          this.openDialog('0ms', '0ms', res)
         },
         error: (err) => {
           this.snack.open(err.error.message);
         }
       })
+  }
+
+  openDialog(enterAnimationDuration: string, exitAnimationDuration: string, data: any): void {
+    this.dialog.open(PayoutDialogComponent, {
+      width: '250px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+      data: data
+    });
   }
 
   private searchExpenses() {

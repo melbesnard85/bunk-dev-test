@@ -1,0 +1,24 @@
+<div *ngIf="data">
+  <h1 mat-dialog-title>Calculated Payouts</h1>
+  <div mat-dialog-content>
+    <ul>
+      <li>
+        <span>&#10003;</span> total : {{data.total}}
+      </li>
+      <li>
+        <span>&#10003;</span> equalShare: {{data.equalShare}}
+      </li>
+      <li *ngFor="let item of data.payouts">
+        <div>
+          <span>&#10003;</span> owes : {{item.owes}}
+        </div>
+        <div>
+          <span>&#10003;</span> owed : {{item.owed}}
+        </div>
+        <div>
+          <span>&#10003;</span> amount : {{item.amount}}
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

@@ -15,11 +15,14 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { ExpenseTableComponent } from './expense-table/expense-table.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { PayoutDialogComponent } from './payout-dialog/payout-dialog.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     HomeComponent,
-    ExpenseTableComponent
+    ExpenseTableComponent,
+    PayoutDialogComponent
   ],
   imports: [
     CommonModule,
@@ -33,7 +36,8 @@ import { SharedModule } from 'src/app/shared/shared.module';
     MatSnackBarModule,
     MatPaginatorModule,
     MatProgressSpinnerModule,
-    SharedModule
+    SharedModule,
+    MatDialogModule
   ],
   exports: [HomeComponent]
 })
