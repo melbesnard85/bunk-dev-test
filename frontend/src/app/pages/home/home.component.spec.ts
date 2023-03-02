@@ -7,6 +7,7 @@ import { firstValueFrom, of } from 'rxjs';
 
 import { HomeComponent } from './home.component';
 import { mockSearchResponse } from '../../mocks/search-response.mock';
+import { MatDialogModule } from '@angular/material/dialog';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;
@@ -16,7 +17,7 @@ describe('HomeComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        HttpClientModule, MatSnackBarModule, MatCardModule
+        HttpClientModule, MatSnackBarModule, MatCardModule, MatDialogModule
       ],
       declarations: [ HomeComponent ],
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
