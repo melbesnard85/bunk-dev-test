@@ -1,5 +1,5 @@
-import { Component, OnInit, Inject } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, Inject } from '@angular/core';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PayoutsDetals, PayoutsResuls } from 'src/app/common/common';
 
 @Component({
@@ -8,12 +8,8 @@ import { PayoutsDetals, PayoutsResuls } from 'src/app/common/common';
   styleUrls: ['./payout-dialog.component.css']
 })
 
-export class PayoutDialogComponent implements OnInit {
+export class PayoutDialogComponent {
   constructor(
-    public dialogRef: MatDialogRef<PayoutDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: PayoutsResuls<PayoutsDetals>
   ) { }
-  ngOnInit(): void {
-
-  }
 }

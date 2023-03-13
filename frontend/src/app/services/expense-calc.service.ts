@@ -13,7 +13,7 @@ export class ExpenseCalcService {
 
   getExpenses(page = 1, perPage = 9): Observable<SearchResult<Expenses>> {
     const api_url = "http://localhost:3000/expenses";
-    let params = new HttpParams().append('results', perPage).append('page', page);
+    const params = new HttpParams().append('results', perPage).append('page', page);
     return this.http.get<SearchResult<Expenses>>(api_url, { params });
   }
 

@@ -9,10 +9,10 @@ import { Subject, takeUntil } from 'rxjs';
   templateUrl: './expense-table.component.html',
   styleUrls: ['./expense-table.component.css']
 })
-export class ExpenseTableComponent implements OnInit {
+export class ExpenseTableComponent implements OnInit, OnDestroy {
   @Input() result$: Subject<any> | undefined;
   @Input() reset$: Subject<any> | undefined;
-  @Output() change: EventEmitter<any> = new EventEmitter<any>();
+  @Output() tbChange: EventEmitter<any> = new EventEmitter<any>();
 
   total = 0;
   perPage = 10;
@@ -50,16 +50,12 @@ export class ExpenseTableComponent implements OnInit {
     }
   }
 
-  showInfo(data: any) {
-    
-  }
-
   ngOnDestroy() {
     this.unsubscribeAll.next(null);
     this.unsubscribeAll.complete();
   }
 
   changePage(page: PageEvent) {
-    this.change.emit({ page: page.pageIndex + 1, pageSize: page.pageIndex, results: page.length, });
+    this.tbChange.emit({ page: page.pageIndex + 1, pageSize: page.pageIndex, results: page.length, });
   }
 }
